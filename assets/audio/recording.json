@@ -1,0 +1,26 @@
+{
+  "title": "方大同《好不容易》",
+  "source": "user-provided",
+  "asset": "hao-bu-rong-yi.mp3",
+  "bytes": 15345685,
+  "sha256": "350e391a1ce4ef28bc51ffac8e1fb38e99eb48e105d51b97329dd94816555ce4",
+  "codec": "mp3",
+  "sampleRate": 44100,
+  "channels": 2,
+  "bitRate": 320000,
+  "containerDuration": 380.107755,
+  "decodedDuration": 380.081633,
+  "fullDecodeVerified": true,
+  "vocalAnchorsCalibrated": false,
+  "rejectedAlternative": {
+    "extension": "mgg2.flac",
+    "reason": "Nonstandard FLAC header; decoder reports invalid data. No decryption attempted."
+  },
+  "acousticCues": {
+    "orchestralRestart": 234.14,
+    "fadeStartsAround": 340,
+    "quietLandingBudget": 345,
+    "nearSilenceAround": 377.03
+  },
+  "caveat": "Energy measurements establish level changes, not independently auditioned lyrics, semantic sections or musical downbeats."
+}

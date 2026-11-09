@@ -1,0 +1,22 @@
+{
+  "name": "project-badger-19",
+  "version": "1.0.0",
+  "description": "A self-contained cinematic birthday story",
+  "scripts": {
+    "build": "node build.mjs && node archive-roundtrip.mjs",
+    "test": "node verify.mjs && node runtime-verify.mjs && node lighting-verify.mjs && node score-verify.mjs && node song-verify.mjs && node song-timeline-verify.mjs && node music-clock-verify.mjs && node director-verify.mjs && node choreography-verify.mjs && node unfolding-verify.mjs && node archive-verify.mjs && node motion-verify.mjs && node ../github/qr-verify.mjs"
+  },
+  "keywords": [],
+  "license": "ISC",
+  "type": "module",
+  "dependencies": {
+    "esbuild": "0.24.0",
+    "three": "0.170.0"
+  },
+  "private": true,
+  "devDependencies": {
+    "jsqr": "1.4.0",
+    "pngjs": "7.0.0",
+    "qrcode": "1.5.4"
+  }
+}
