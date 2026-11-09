@@ -1,19 +1,17 @@
 {
   "repository": "https://github.com/noudly/Badger-19",
   "url": "https://noudly.github.io/Badger-19/",
-  "runtimeSourceCommit": "ec07654b0e87f6478f92b0e8d79b0789f95628fb",
-  "workflowRun": "https://github.com/noudly/Badger-19/actions/runs/42568339270",
-  "publishedAt": "2026-11-09T05:38:20Z",
-  "verifiedAt": "2026-11-09T05:42:58.980378+00:00",
-  "anonymousHTTPS": 200,
-  "liveHTMLBytes": 21285129,
-  "liveHTMLSHA256": "0143c2cb2d93309765ba79e4280a53ef87a240584246ce358d304d279c473b1b",
-  "matchesTestedOfflineBuild": true,
-  "anonymousMobileBrowserSmokePassed": true,
+  "release": "illustrated-2d",
+  "renderer": "Canvas2D",
+  "expectedHTMLBytes": 26134902,
+  "expectedHTMLSHA256": "d7196fd98205ed9a00b5bfdd617c6f31539ead2047e8c0f01b9bb7c0b93ad5f4",
+  "preparedAt": "2026-11-09T12:06:06.386122+00:00",
+  "illustrationAssets": 11,
+  "illustrationBytes": 4183904,
+  "localBrowserChecks": 22,
+  "targetedViewports": 4,
   "qrPNG": "qr/BADGER-19-QR.png",
   "qrSVG": "qr/BADGER-19-QR.svg",
-  "qrDecodeVerifiedAtPixels": [
-    1200,
-    360
-  ]
+  "qrUnchanged": true,
+  "deploymentEvidence": "See latest successful GitHub Actions run; the release is verified against this expected HTML fingerprint after publication."
 }

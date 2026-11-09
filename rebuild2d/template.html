@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#253b4d">
+  <meta name="description" content="一小片为十九岁亮着的世界。BADGER 与熊，把喜欢的小事慢慢留下。">
+  <link rel="icon" href="data:,">
+  <title>BADGER · 十九岁的小世界</title>
+  <style>
+    :root{color-scheme:dark;--paper:#fff3d9;--paper-deep:#e9d7b7;--ink:#594737;--ui:#fff3dd;--ui-soft:#fff3ddb3;--line:#fff3dd55;--night:#253b4d;--coral:#d58b72;font-family:Georgia,"Kaiti SC","STKaiti","KaiTi","Songti SC","Noto Serif CJK SC",serif}
+    *{box-sizing:border-box}
+    html,body{width:100%;height:100%;margin:0;overflow:hidden;background:var(--night)}
+    body{color:var(--ui);-webkit-tap-highlight-color:transparent;overscroll-behavior:none}
+    body[data-tone="light"]{--ui:#554637;--ui-soft:#554637ad;--line:#5546374d}
+    button,a{touch-action:manipulation}
+    button,a,input{font:inherit}
+    button{cursor:pointer}
+    button:focus-visible,a:focus-visible,#stage:focus-visible{outline:2px solid var(--coral);outline-offset:5px}
+    [hidden]{display:none!important}
+    #stage{position:fixed;inset:0;outline:none;touch-action:pan-y}
+    #scene{display:block;width:100%;height:100%}
+    .masthead{position:fixed;z-index:10;inset:max(25px,env(safe-area-inset-top)) clamp(22px,4.5vw,68px) auto;display:flex;align-items:center;justify-content:space-between;gap:18px;pointer-events:none;color:var(--ui);transition:color 1s}
+    .brand{display:flex;align-items:baseline;gap:13px;font:10px/1.6 system-ui,sans-serif;letter-spacing:.25em;white-space:nowrap}
+    .brand-name{font-weight:550}
+    .brand-divider{font-size:12px;letter-spacing:0;opacity:.5}
+    .brand-age{font:italic 16px/1 Georgia,serif;letter-spacing:0}
+    .controls{display:flex;align-items:center;gap:9px;pointer-events:auto}
+    .icon-button{position:relative;display:grid;place-items:center;width:44px;height:44px;padding:0;border:1px solid var(--line);border-radius:50%;background:transparent;color:inherit;transition:border-color .25s,background .25s,transform .25s}
+    .icon-button:hover{background:#fff4dc0b;transform:translateY(-1px)}
+    .icon-button svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.35;stroke-linecap:round;stroke-linejoin:round}
+    #sound .wave{opacity:.2;transition:opacity .3s}
+    #sound.playing .wave{opacity:1}
+    #sound:not(.playing):after{content:"";position:absolute;width:19px;height:1px;transform:rotate(-43deg);background:currentColor}
+    #music-status{position:fixed;z-index:10;right:clamp(22px,4.5vw,68px);top:max(80px,calc(env(safe-area-inset-top) + 62px));max-width:190px;text-align:right;color:var(--ui-soft);font:10px/1.7 system-ui,sans-serif;letter-spacing:.06em;pointer-events:none}
+    #intro{position:fixed;z-index:3;top:17%;left:8%;right:8%;text-align:center;pointer-events:none;opacity:0;transition:opacity 1.3s}
+    #intro.visible{opacity:1}
+    .intro-eyebrow{margin:0 0 16px;font:8px/1.8 system-ui,sans-serif;letter-spacing:.22em;color:var(--ui-soft)}
+    #intro h1{margin:0;font-size:clamp(24px,2.7vw,38px);font-weight:400;letter-spacing:.14em;line-height:1.8;color:var(--ui)}
+    .mobile-break{display:none}
+    #caption{position:fixed;z-index:5;bottom:max(7%,calc(env(safe-area-inset-bottom) + 25px));left:12%;right:12%;margin:0;text-align:center;color:var(--ui);font-size:clamp(13px,1.15vw,17px);font-weight:400;line-height:2;letter-spacing:.11em;pointer-events:none;opacity:0;transform:translateY(5px);transition:opacity 1.2s,transform 1.2s}
+    #caption.visible{opacity:1;transform:translateY(0)}
+    #caption{text-shadow:0 1px 4px #263c5273}
+    body[data-tone="light"] #caption{text-shadow:0 1px 4px #fff3d9ab}
+    #memory{position:fixed;z-index:6;right:6.5%;top:21%;width:clamp(94px,12vw,160px);pointer-events:none;opacity:0;transform:translateY(10px) rotate(3deg);transition:opacity 1.2s,transform 1.5s}
+    #memory.visible{opacity:1;transform:translateY(0) rotate(3deg)}
+    #memory img{display:block;width:100%;height:auto;border:1px solid #fff4de80}
+    #ending{position:fixed;z-index:4;top:22%;left:6.5%;right:auto;width:300px;padding:22px 18px 20px;text-align:center;pointer-events:none;opacity:0;transform:translateY(8px);transition:opacity 2.2s,transform 2.2s;color:#594737;background:rgba(255,243,217,.94);border:1px solid #9f80662b;clip-path:polygon(1% 1%,99% 0,100% 99%,0 100%)}
+    #ending.visible{opacity:1;transform:translateY(0)}
+    #ending .age{margin:0;font:400 clamp(64px,8vw,96px)/.95 Georgia,serif;letter-spacing:-.075em;padding-right:.075em}
+    #ending .wish{margin:22px 0 0;font-size:clamp(14px,1.4vw,19px);font-weight:400;line-height:2.05;letter-spacing:.12em;opacity:0;transform:translateY(5px);transition:opacity 1.8s,transform 1.8s}
+    #ending .wish span{display:block}
+    #ending.show-wish .wish{opacity:1;transform:translateY(0)}
+    #ending .birthday{margin:17px 0 0;padding-left:.28em;font:8px/1.7 system-ui,sans-serif;letter-spacing:.28em;opacity:0;transition:opacity 1.8s}
+    #ending.show-birthday .birthday{opacity:1}
+    #keepsake{position:fixed;z-index:8;bottom:max(8%,calc(env(safe-area-inset-bottom) + 24px));right:6.5%;width:clamp(76px,9vw,118px);padding:0;background:none;border:0;transform:rotate(5deg);transition:transform .35s}
+    #keepsake:hover{transform:translateY(-4px) rotate(1deg)}
+    #keepsake img{display:block;width:100%;height:auto;border:1px solid #fff4de80}
+    #keepsake.has-memory:before{content:"";position:absolute;inset:0;background:var(--memory-image) center/100% 100%;border:1px solid #fff4de80;transform:translate(-8px,1px) rotate(-11deg);z-index:-1}
+    #save-world{position:fixed;z-index:8;left:6.5%;bottom:max(8%,calc(env(safe-area-inset-bottom) + 24px));display:flex;align-items:center;gap:9px;min-height:44px;color:var(--ui);text-decoration:none;font-size:12px;letter-spacing:.08em;border-bottom:1px solid var(--line);padding:6px 0;transition:border-color .25s}
+    #save-world:hover{border-color:currentColor}
+    #save-world svg{width:15px;height:18px;fill:none;stroke:currentColor;stroke-width:1.2;stroke-linecap:round;stroke-linejoin:round}
+    #photo-status{position:fixed;z-index:8;right:6.5%;bottom:max(8%,calc(env(safe-area-inset-bottom) + 24px));max-width:180px;text-align:center;color:var(--ui);font-size:12px;line-height:1.8;letter-spacing:.04em}
+    #retry-photo{display:block;min-height:44px;padding:8px 16px;margin:7px auto 0;border:1px solid var(--line);border-radius:2px;color:inherit;background:transparent;font-size:12px}
+    #photo-modal{padding:0;margin:auto;width:min(480px,calc(100vw - 28px));max-width:none;max-height:calc(100dvh - 28px);height:fit-content;border:1px solid #8e765c;background:var(--paper);color:var(--ink);overflow:auto;border-radius:2px}
+    #photo-modal::backdrop{background:#192b3fdf}
+    #photo-image{display:block;width:100%;max-height:68dvh;object-fit:contain;background:var(--paper)}
+    .photo-actions{display:grid;grid-template-columns:1fr auto 44px;align-items:center;gap:8px;padding:8px 12px max(10px,env(safe-area-inset-bottom));border-top:1px solid #8e765c29}
+    #photo-nav{display:flex;align-items:center;gap:2px;grid-column:1}
+    #photo-nav button,#close-photo{display:grid;place-items:center;flex:none;width:44px;height:44px;padding:0;border:0;background:transparent;color:var(--ink);font:24px/1 Georgia,serif}
+    #photo-count{font:9px/1.5 system-ui,sans-serif;letter-spacing:.06em;white-space:nowrap;color:#806b54;min-width:35px;text-align:center}
+    #download{display:flex;align-items:center;justify-content:center;grid-column:2;min-height:44px;color:var(--ink);text-decoration:none;font-size:13px;white-space:nowrap;border-bottom:1px solid #8e765c66;padding:4px 2px;letter-spacing:.05em}
+    #photo-nav[hidden]+#download{grid-column:1/3;justify-content:flex-start;border-bottom:0;padding-left:8px}
+    #close-photo{grid-column:3}
+    #close-photo svg{width:15px;height:15px;fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round}
+    #flash{position:fixed;z-index:9;inset:0;background:#fff3d7;opacity:0;pointer-events:none;transition:opacity .2s}
+    body.shutter #flash{opacity:.17;transition-duration:.05s}
+    #loading{position:fixed;z-index:30;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:23px;background:var(--paper);color:var(--ink);transition:opacity .9s;pointer-events:auto}
+    #loading.done{opacity:0;pointer-events:none}
+    #loading p{margin:0;font-size:13px;letter-spacing:.12em;line-height:1.8}
+    .loading-sprout{width:35px;height:43px;fill:none;stroke:#a48656;stroke-width:1.3;stroke-linecap:round;stroke-linejoin:round;transform-origin:50% 100%;animation:stir 2.4s ease-in-out infinite}
+    @keyframes stir{0%,100%{transform:rotate(-3deg);opacity:.6}50%{transform:rotate(3deg);opacity:1}}
+    #unavailable{position:fixed;z-index:40;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px;padding:30px;text-align:center;background:var(--paper);color:var(--ink)}
+    #unavailable p{margin:0;font-size:16px;letter-spacing:.08em;line-height:2}
+    #try-again{min-height:44px;padding:8px 24px;background:transparent;color:var(--ink);border:1px solid #9c8060;border-radius:2px;font-size:13px;letter-spacing:.06em}
+    @media(min-width:601px) and (max-aspect-ratio:13/10){#ending{top:10%;left:50%;right:auto;width:280px;transform:translate(-50%,8px)}#ending.visible{transform:translate(-50%,0)}#ending .age{font-size:72px}#ending .wish{font-size:15px;margin-top:16px}#ending .birthday{margin-top:12px}}
+    @media(max-width:600px){
+      .masthead{top:max(20px,env(safe-area-inset-top));left:22px;right:22px}
+      .brand{font-size:9px;gap:10px;letter-spacing:.2em}
+      .brand-age{font-size:15px}
+      .controls{gap:7px}
+      #intro{top:18%;left:9%;right:9%}
+      .intro-eyebrow{font-size:7px;letter-spacing:.15em;margin-bottom:13px}
+      #intro h1{font-size:27px;line-height:1.65;letter-spacing:.10em}
+      .mobile-break{display:block}
+      #caption{left:8%;right:8%;font-size:13px;bottom:max(7%,calc(env(safe-area-inset-bottom) + 22px));letter-spacing:.08em}
+      #ending{top:13%;left:50%;right:auto;width:min(280px,calc(100vw - 54px));padding:16px 14px;transform:translate(-50%,8px)}
+      #ending.visible{transform:translate(-50%,0)}
+      #ending .age{font-size:72px}
+      #ending .wish{margin-top:18px;font-size:14px;line-height:2;letter-spacing:.10em}
+      #ending .birthday{font-size:7px;margin-top:13px}
+      #memory{top:22%;right:5.5%;width:91px}
+      #keepsake{right:6%;width:76px;bottom:max(7%,calc(env(safe-area-inset-bottom) + 21px))}
+      #save-world{left:6%;font-size:11px;gap:7px;bottom:max(7%,calc(env(safe-area-inset-bottom) + 21px))}
+      #photo-status{right:6%;bottom:max(7%,calc(env(safe-area-inset-bottom) + 21px));font-size:11px}
+      .photo-actions{padding-left:8px;padding-right:8px;gap:6px;grid-template-columns:1fr auto 44px}
+      #photo-nav{gap:0}
+      #photo-count{font-size:8px;min-width:32px}
+      #download{font-size:12px;letter-spacing:.02em}
+    }
+    @media(max-height:540px) and (min-width:680px){
+      .masthead{top:max(17px,env(safe-area-inset-top))}
+      #intro{top:23%}
+      #intro h1{font-size:26px}
+      .intro-eyebrow{font-size:7px;margin-bottom:10px}
+      #ending{top:20%;left:6%;right:auto;max-width:25%;text-align:left;padding:15px 13px}
+      #ending .age{font-size:58px}
+      #ending .wish{font-size:12px;margin-top:13px;line-height:1.9;letter-spacing:.06em}
+      #ending .birthday{font-size:6px;margin-top:10px;letter-spacing:.18em;padding-left:0}
+      #caption{bottom:7%;font-size:12px}
+      #keepsake{width:70px;bottom:8%}
+      #save-world{font-size:10px;bottom:8%}
+      #memory{width:86px;top:22%}
+    }
+    @media(prefers-reduced-motion:reduce){
+      *,*:before,*:after{animation:none!important;transition-duration:.01ms!important;scroll-behavior:auto!important}
+      body.shutter #flash{opacity:0}
+    }
+  </style>
+</head>
+<body data-chapter="code" data-tone="dark">
+  <div id="stage" tabindex="0" aria-label="BADGER 与熊的互动故事"><canvas id="scene"></canvas></div>
+  <header class="masthead">
+    <div class="brand" aria-label="BADGER，十九岁"><span class="brand-name">BADGER</span><span class="brand-divider" aria-hidden="true">/</span><span class="brand-age">19</span></div>
+    <div class="controls">
+      <button class="icon-button" id="replay" type="button" aria-label="重新播放" hidden><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 8a7.8 7.8 0 1 1-1 7M5 3.5V8h4.5"/></svg></button>
+      <button class="icon-button" id="sound" type="button" aria-label="开启声音" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.5 9.5H8L13 6v12l-5-3.5H4.5z"/><path class="wave" d="M16.5 8.7q3.6 3.3 0 6.6M19 6q6.2 6 0 12"/></svg></button>
+    </div>
+  </header>
+  <span id="music-status" role="status" hidden></span>
+  <div id="intro" class="visible"><p class="intro-eyebrow">A LITTLE WORLD, JUST FOR YOU.</p><h1>有些小事，<br class="mobile-break">想留给你。</h1></div>
+  <p id="caption" aria-live="polite"></p>
+  <div id="memory" aria-hidden="true"><img id="memory-image" alt=""></div>
+  <div id="ending"><p class="age">19</p><p class="wish"><span>愿你喜欢的小事，</span><span>常常发生。</span></p><p class="birthday">HAPPY BIRTHDAY</p></div>
+  <button id="keepsake" type="button" aria-label="打开纪念照片" hidden><img id="photo-thumb" alt="BADGER 与熊的纪念照片"></button>
+  <a id="save-world" href="#" download="BADGER-19.html" aria-label="保存整个小世界，离线重看" hidden><svg viewBox="0 0 20 24" aria-hidden="true"><path d="M10 3v12m-3.8-3.7L10 15l3.8-3.7M3 17v4h14v-4"/></svg><span>收藏小世界</span></a>
+  <div id="photo-status" role="status" hidden>照片还没显影。<button id="retry-photo" type="button">再拍一张</button></div>
+  <dialog id="photo-modal" aria-label="留下的照片"><img id="photo-image" alt="BADGER 与熊的纪念照片"><div class="photo-actions"><div id="photo-nav" hidden><button id="photo-prev" type="button" aria-label="上一张照片">‹</button><span id="photo-count"></span><button id="photo-next" type="button" aria-label="下一张照片">›</button></div><a id="download" download="BADGER-and-BEAR-19.png">留下照片</a><button id="close-photo" type="button" aria-label="关闭照片"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="m4 4 12 12M16 4 4 16"/></svg></button></div></dialog>
+  <div id="flash" aria-hidden="true"></div>
+  <div id="loading"><svg class="loading-sprout" viewBox="0 0 40 50" aria-hidden="true"><path d="M20 44V25m0 6C8 31 6 22 7 16c9 0 14 5 13 15Zm0-8c0-10 5-16 14-17 2 10-3 18-14 17Z"/></svg><p>正在把灯点亮。</p></div>
+  <div id="unavailable" hidden><p>这个小世界还没能展开。</p><button id="try-again" type="button">再试一次</button></div>
+  <!-- APP_SCRIPT -->
+</body>
+</html>

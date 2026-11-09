@@ -1,10 +1,10 @@
 {
   "name": "project-badger-19",
   "version": "1.0.0",
-  "description": "A self-contained cinematic birthday story",
+  "description": "A self-contained illustrated2D birthday story",
   "scripts": {
-    "build": "node build.mjs && node archive-roundtrip.mjs",
-    "test": "node verify.mjs && node runtime-verify.mjs && node lighting-verify.mjs && node score-verify.mjs && node song-verify.mjs && node song-timeline-verify.mjs && node music-clock-verify.mjs && node director-verify.mjs && node choreography-verify.mjs && node unfolding-verify.mjs && node archive-verify.mjs && node motion-verify.mjs && node ../github/qr-verify.mjs"
+    "build": "node ../rebuild2d/build.mjs && node ../rebuild2d/archive-roundtrip.mjs",
+    "test": "node song-verify.mjs && node music-clock-verify.mjs && node song-timeline-verify.mjs && node director-verify.mjs && node archive-verify.mjs && node ../rebuild2d/stage-verify.mjs && node ../rebuild2d/release-verify.mjs && node ../github/qr-verify.mjs"
   },
   "keywords": [],
   "license": "ISC",

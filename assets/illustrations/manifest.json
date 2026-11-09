@@ -1,0 +1,161 @@
+{
+  "style": "flat-2d-gouache",
+  "assets": {
+    "street": {
+      "file": "street.webp",
+      "width": 1536,
+      "height": 1024,
+      "actors": false,
+      "focus": {
+        "x": 0.5,
+        "y": 0.6
+      },
+      "bytes": 494946,
+      "sha256": "77bcfa341f01b2eaf37dca944c4bdcd9e7341d23078cc519daf5840e27882b80"
+    },
+    "window": {
+      "file": "window.webp",
+      "width": 1536,
+      "height": 1024,
+      "actors": false,
+      "focus": {
+        "x": 0.5,
+        "y": 0.6
+      },
+      "bytes": 487830,
+      "sha256": "afa45e21bf4f72c9cd03bba2dc2d41ec1919f50d62f61a2d018eaca2c07eb16c"
+    },
+    "fracture": {
+      "file": "fracture.webp",
+      "width": 1536,
+      "height": 1024,
+      "actors": false,
+      "focus": {
+        "x": 0.5,
+        "y": 0.6
+      },
+      "bytes": 522974,
+      "sha256": "9abb4e9a09e0e934093850aaba6417d95f6831b8489d0a29800a535d761229eb"
+    },
+    "bloom": {
+      "file": "bloom.webp",
+      "width": 1536,
+      "height": 1024,
+      "actors": false,
+      "focus": {
+        "x": 0.5,
+        "y": 0.6
+      },
+      "bytes": 615940,
+      "sha256": "f426d97877b3647140d9abab8fc5d3f2159574f95bde7d84e6ffe5892c37428b"
+    },
+    "snow": {
+      "file": "snow.webp",
+      "width": 1536,
+      "height": 1024,
+      "actors": false,
+      "focus": {
+        "x": 0.5,
+        "y": 0.6
+      },
+      "bytes": 476728,
+      "sha256": "61d6a219050b1d686fd0757b9f82e9327ff60fa53c20d548e781724fa64b5f87"
+    },
+    "actors": {
+      "file": "actors.webp",
+      "width": 1536,
+      "height": 1024,
+      "frames": [
+        {
+          "x": 140,
+          "y": 168,
+          "w": 453,
+          "h": 777
+        },
+        {
+          "x": 942,
+          "y": 104,
+          "w": 492,
+          "h": 839
+        }
+      ],
+      "bytes": 219786,
+      "sha256": "7fbd11ef9bc1d1867c69c5c9a4416848ef0d6a37e3286cbde616ce4bf2886534"
+    },
+    "photoPose": {
+      "file": "photoPose.webp",
+      "width": 1536,
+      "height": 1024,
+      "frames": [
+        {
+          "x": 205,
+          "y": 18,
+          "w": 1130,
+          "h": 983
+        }
+      ],
+      "bytes": 297436,
+      "sha256": "3994df25195de92f2f563b80d5b09d9793e84b92ce8c41e0c67e0a819714df2c"
+    },
+    "reachPose": {
+      "file": "reachPose.webp",
+      "width": 1536,
+      "height": 1024,
+      "frames": [
+        {
+          "x": 74,
+          "y": 15,
+          "w": 1391,
+          "h": 985
+        }
+      ],
+      "bytes": 298732,
+      "sha256": "092dd4b62ed39c715c2f26cc3a2d29c1943bbd4338ef842aad1a91e787bdf6a9"
+    },
+    "holdPose": {
+      "file": "holdPose.webp",
+      "width": 1536,
+      "height": 1024,
+      "frames": [
+        {
+          "x": 266,
+          "y": 27,
+          "w": 1010,
+          "h": 968
+        }
+      ],
+      "bytes": 277190,
+      "sha256": "20cb66a0be5b58f8182bfd8884250474bcf252f7d479fc53abee1b486a6d7fe0"
+    },
+    "snowPose": {
+      "file": "snowPose.webp",
+      "width": 1536,
+      "height": 1024,
+      "frames": [
+        {
+          "x": 217,
+          "y": 16,
+          "w": 1107,
+          "h": 993
+        }
+      ],
+      "bytes": 280774,
+      "sha256": "c8c0ad692290c7370ffc30dc41e1f3c50989993f0c58d95e1b2d3120d5a42a5f"
+    },
+    "portraitPose": {
+      "file": "portraitPose.webp",
+      "width": 1536,
+      "height": 1024,
+      "frames": [
+        {
+          "x": 322,
+          "y": 51,
+          "w": 894,
+          "h": 927
+        }
+      ],
+      "bytes": 211568,
+      "sha256": "66f21bb482101fade6cfc43461e4b22cde4fead9a2f87fcd32d10f0ae0a9a3f3"
+    }
+  }
+}

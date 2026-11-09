@@ -1,4 +1,6 @@
-rebuild/node_modules/
+rebuild/node_modules
+node_modules/
+dist/
 rebuild/app.bundle.js
 rebuild/preview*.svg
 rebuild/preview*.png

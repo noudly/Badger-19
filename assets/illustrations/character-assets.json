@@ -1,0 +1,73 @@
+{
+  "actors": {
+    "width": 1536,
+    "height": 1024,
+    "alpha": true,
+    "visibleBounds": [
+      140,
+      104,
+      1294,
+      841
+    ],
+    "source": "/workspace/generated_images/exec-2c159af6-7ba0-4cfa-9492-ee3f61a7d217.png",
+    "bytes": 2120551,
+    "frames": {
+      "badger": {
+        "atlasRect": [
+          0,
+          0,
+          768,
+          1024
+        ],
+        "visibleBounds": [
+          140,
+          168,
+          453,
+          777
+        ],
+        "baseline": 945
+      },
+      "bear": {
+        "atlasRect": [
+          768,
+          0,
+          768,
+          1024
+        ],
+        "visibleBounds": [
+          942,
+          104,
+          492,
+          839
+        ],
+        "baseline": 943
+      }
+    }
+  },
+  "holdPose": {
+    "width": 1536,
+    "height": 1024,
+    "alpha": true,
+    "visibleBounds": [
+      266,
+      27,
+      1010,
+      969
+    ],
+    "source": "/workspace/generated_images/exec-05d4af1d-c4ba-4599-a472-109422267b5c.png",
+    "bytes": 2301558
+  },
+  "portraitPose": {
+    "width": 1536,
+    "height": 1024,
+    "alpha": true,
+    "visibleBounds": [
+      322,
+      51,
+      894,
+      927
+    ],
+    "source": "/workspace/generated_images/exec-91128aa1-fc0e-4b25-8ba7-fa42fdef0543.png",
+    "bytes": 2022577
+  }
+}

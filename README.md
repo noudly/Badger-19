@@ -4,7 +4,7 @@
 
 二维码：[PNG](qr/BADGER-19-QR.png) · [印刷SVG](qr/BADGER-19-QR.svg)。打印至少3cm宽并保留白边；网页首次触碰后播放音乐。
 
-为十九岁留下的一个互动小世界。BADGER 和熊会在同一座立体街角相遇、拍照、穿过碎裂的世界，最后一起看雪。手机和电脑均可打开；故事自动推进，触碰能得到额外回应。
+当前版本为完整的 **2D 手绘插画故事**：奶油色角色、暖棕描线、纸纹、唱片店的暖灯与落叶。BADGER与熊会靠近、调弦、拍照、伸手、牵手、接雪，最终留下合照。手机和电脑均可打开；故事自动推进，触碰能得到额外回应。网页使用Canvas2D，已撤掉旧的3D人物和WebGL渲染。
 
 配乐采用用户提供的 **方大同《好不容易》MP3**，已验证完整解码：44.1kHz双声道、320kbps、380.108秒。另一份.mgg2.flac无法作为标准FLAC解码。原曲已嵌入网页和离线副本，旧合成背景旋律已禁用；交互与快门音效保留。
 
@@ -12,7 +12,9 @@
 
 ## 加入歌曲
 
-将 MP3 文件放到 `assets/audio/hao-bu-rong-yi.mp3`。构建会把歌曲与三维场景一起写入单文件 HTML，网页和离线副本都可使用。也可用 `BADGER_AUDIO_FILE=/绝对路径/歌曲.m4a npm run build --prefix rebuild`。
+将 MP3 文件放到 `assets/audio/hao-bu-rong-yi.mp3`。构建会把歌曲和全部插画一起写入单文件 HTML，网页和离线副本都可使用。也可用 `BADGER_AUDIO_FILE=/绝对路径/歌曲.m4a npm run build --prefix rebuild`。
+
+当前画面与主程序在 `rebuild2d/`，插画在 `assets/illustrations/`；`rebuild/` 保留音乐时钟与离线模块，旧3D文件只作历史参考，不参与当前网页构建。
 
 ## 本地构建
 
@@ -22,7 +24,7 @@ npm test --prefix rebuild
 npm run build --prefix rebuild
 ```
 
-网页输出：`dist/index.html`。离线副本：`exports/PROJECT-BADGER-19-offline.html`。若主动移除录音，故事仍可静音推进并显示“音乐未载入”。
+网页输出：`dist/index.html`。离线副本：`exports/PROJECT-BADGER-19-offline.html`。构建时需保留指定录音与插画文件；成品不依赖外部音频、图片或字体请求。
 
 ## GitHub Pages
 

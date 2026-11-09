@@ -1,0 +1,44 @@
+{
+  "photoPose": {
+    "file": "photoPose.png",
+    "width": 1536,
+    "height": 1024,
+    "mode": "RGBA",
+    "contentBounds": [
+      205,
+      18,
+      1335,
+      1001
+    ],
+    "contentBoundsThreshold": 16,
+    "transparentCorners": true
+  },
+  "reachPose": {
+    "file": "reachPose.png",
+    "width": 1536,
+    "height": 1024,
+    "mode": "RGBA",
+    "contentBounds": [
+      74,
+      15,
+      1465,
+      1000
+    ],
+    "contentBoundsThreshold": 16,
+    "transparentCorners": true
+  },
+  "snowPose": {
+    "file": "snowPose.png",
+    "width": 1536,
+    "height": 1024,
+    "mode": "RGBA",
+    "contentBounds": [
+      217,
+      16,
+      1324,
+      1009
+    ],
+    "contentBoundsThreshold": 16,
+    "transparentCorners": true
+  }
+}

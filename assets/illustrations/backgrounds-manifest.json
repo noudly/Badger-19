@@ -1,0 +1,57 @@
+{
+  "street": {
+    "src": "/workspace/badger-github-deploy/assets/illustrations/street.png",
+    "width": 1536,
+    "height": 1024,
+    "actors": false,
+    "focus": {
+      "x": 0.5,
+      "y": 0.6
+    },
+    "bytes": 3122936
+  },
+  "window": {
+    "src": "/workspace/badger-github-deploy/assets/illustrations/window.png",
+    "width": 1536,
+    "height": 1024,
+    "actors": false,
+    "focus": {
+      "x": 0.5,
+      "y": 0.6
+    },
+    "bytes": 3093314
+  },
+  "fracture": {
+    "src": "/workspace/badger-github-deploy/assets/illustrations/fracture.png",
+    "width": 1536,
+    "height": 1024,
+    "actors": false,
+    "focus": {
+      "x": 0.5,
+      "y": 0.6
+    },
+    "bytes": 3132010
+  },
+  "bloom": {
+    "src": "/workspace/badger-github-deploy/assets/illustrations/bloom.png",
+    "width": 1536,
+    "height": 1024,
+    "actors": false,
+    "focus": {
+      "x": 0.5,
+      "y": 0.6
+    },
+    "bytes": 3379383
+  },
+  "snow": {
+    "src": "/workspace/badger-github-deploy/assets/illustrations/snow.png",
+    "width": 1536,
+    "height": 1024,
+    "actors": false,
+    "focus": {
+      "x": 0.5,
+      "y": 0.6
+    },
+    "bytes": 3132655
+  }
+}
