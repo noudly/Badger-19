@@ -12,6 +12,7 @@ const ids=[...template.matchAll(/\bid=["']([^"']+)["']/g)].map(match=>match[1]);
 assert.equal(new Set(ids).size,ids.length,'Duplicate UI IDs');
 for(const match of main.matchAll(/\$\('#([^']+)'\)/g))assert(ids.includes(match[1]),`Missing UI element: ${match[1]}`);
 assert.equal(template.split('<!-- APP_SCRIPT -->').length,2);
+assert(template.includes('name="application-name" content="PROJECT BADGER"'),'Stable project metadata is required by the public QR verifier');
 const meta=JSON.parse(await fs.readFile(new URL('assets/illustrations/manifest.json',root),'utf8'));
 const expected=['street','window','fracture','bloom','snow','actors','photoPose','reachPose','holdPose','snowPose','portraitPose'];
 assert.deepEqual(Object.keys(meta.assets).sort(),expected.sort());
