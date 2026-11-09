@@ -1,0 +1,19 @@
+{
+  "repository": "https://github.com/noudly/Badger-19",
+  "url": "https://noudly.github.io/Badger-19/",
+  "runtimeSourceCommit": "ec07654b0e87f6478f92b0e8d79b0789f95628fb",
+  "workflowRun": "https://github.com/noudly/Badger-19/actions/runs/42568339270",
+  "publishedAt": "2026-11-09T05:38:20Z",
+  "verifiedAt": "2026-11-09T05:42:58.980378+00:00",
+  "anonymousHTTPS": 200,
+  "liveHTMLBytes": 21285129,
+  "liveHTMLSHA256": "0143c2cb2d93309765ba79e4280a53ef87a240584246ce358d304d279c473b1b",
+  "matchesTestedOfflineBuild": true,
+  "anonymousMobileBrowserSmokePassed": true,
+  "qrPNG": "qr/BADGER-19-QR.png",
+  "qrSVG": "qr/BADGER-19-QR.svg",
+  "qrDecodeVerifiedAtPixels": [
+    1200,
+    360
+  ]
+}
